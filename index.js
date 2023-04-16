@@ -12,33 +12,25 @@ const words = [
 const hurrayContainer = document.getElementById('hurray-container');
 hurrayContainer.style.display = "none";
 
-// Create the game
-const gameContainer = document.getElementById('game');
-
+// get words container
+const wordsContainer = document.getElementById('words-container');
 words.forEach(word => {
-  const wordContainer = document.createElement('div');
-  wordContainer.classList.add('word-container');
-  wordContainer.id = word.word;
-  
   const wordText = document.createElement('div');
   wordText.classList.add('word');
+  wordText.id = word.word;
   wordText.innerText = word.word;
-  wordContainer.appendChild(wordText);
-  
-  gameContainer.appendChild(wordContainer);
+  wordsContainer.appendChild(wordText);
 });
 
 // Shuffle the array of words
 words.sort(() => Math.random() - 0.5);
 
 // Handle drop events on the word containers
-const wordContainers1 = document.querySelectorAll('.word-container');
-let i = 0;
+const imagesContainer = document.getElementById('words-container');
 words.forEach(word => {
-  const wordContainer = wordContainers1[i];
-  i++;
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
+  imageConainer.id = word.word + '-image';
   imageContainer.draggable = true;
   imageContainer.addEventListener('dragstart', (event) => {
       event.dataTransfer.setData('text/plain', word.word);
@@ -48,7 +40,7 @@ words.forEach(word => {
   image.src = word.img;
   imageContainer.appendChild(image);
 
-  wordContainer.appendChild(imageContainer);
+  imagesContainer.appendChild(imageContainer);
 });
 
 // Handle drop events on the word containers
@@ -63,13 +55,14 @@ wordContainers.forEach(wordContainer => {
     event.preventDefault();
     const word = event.dataTransfer.getData('text/plain');
     if(word === event.target.innerText){
-        document.getElementById(word).remove();
-        hurrayContainer.style.display = "flex";
-        setTimeout(()=>{
-          // hide the hurray container again after 2 seconds.
-          const hurrayContainer = document.getElementById('hurray-container');
-          hurrayContainer.style.display = "none";
-        }, 2000)
+      document.getElementById(word).remove();
+      document.getElementById(word + '-image').remove();
+      hurrayContainer.style.display = "flex";
+      setTimeout(()=>{
+        // hide the hurray container again after 2 seconds.
+        const hurrayContainer = document.getElementById('hurray-container');
+        hurrayContainer.style.display = "none";
+      }, 2000)
     }
   });
 });
