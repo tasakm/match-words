@@ -97,6 +97,10 @@
 		// Shuffle the array of words
 		words.sort(() => Math.random() - 0.5);
 		
+		// hide the hurray container
+		const hurrayContainer = document.getElementById('hurray-container');
+		hurrayContainer.style.display = "none";
+	  	
 		// Create the game
 		const gameContainer = document.getElementById('game');
 		
@@ -135,7 +139,8 @@
 			wordContainer.addEventListener('drop', (event) => {
 				event.preventDefault();
 				const word = event.dataTransfer.getData('text/plain');
-				console.log(event)
+				if(word === event.target.innerText)
+					hurrayContainer.style.display = "flex";
 			});
 		});
 	</script>
