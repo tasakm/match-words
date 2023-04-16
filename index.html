@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Match Word with Image</title>
+	<style>
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<h1>Match the Words with Images</h1>
+	<div id="game"></div>
+	<script>
+		// Array of words and images
+		const words = [
+			{ word: 'Apple', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Apple' },
+			{ word: 'Banana', img: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=Banana' },
+			{ word: 'Orange', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Orange' },
+			{ word: 'Grapes', img: 'https://via.placeholder.com/150/8E44AD/FFFFFF?text=Grapes' },
+			{ word: 'Mango', img: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=Mango' },
+			{ word: 'Pineapple', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Pineapple' }
+		];
+		
+		// Shuffle the array of words
+		words.sort(() => Math.random() - 0.5);
+		
+		// Create the game
+		const gameContainer = document.getElementById('game');
+		
+		words.forEach(word => {
+			const wordContainer = document.createElement('div');
+			wordContainer.classList.add('word-container');
+			
+			const wordText = document.createElement('p');
+			wordText.innerText = word.word;
+			wordContainer.appendChild(wordText);
+			
+			const imageContainer = document.createElement('div');
+			imageContainer.classList.add('image-container');
+			
+			const image = document.createElement('img');
+			image.src = word.img;
+			imageContainer.appendChild(image);
+			
+			wordContainer.appendChild(imageContainer);
+			gameContainer.appendChild(wordContainer);
+		});
+	</script>
+</body>
+</html>
