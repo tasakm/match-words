@@ -8,6 +8,7 @@ img {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  z-index: 100;
 }
 
 .word {
@@ -31,12 +32,12 @@ img {
   align-items: center;
   justify-content: center;
   cursor: move;
+  z-index: 100;
 }
 body {
   margin: 0;
   padding: 0;
   background-color: #48dbfb;
-  overflow: hidden;
 }
 
 #hurray-container {
