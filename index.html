@@ -37,11 +37,52 @@
 			justify-content: center;
 			cursor: move;
 		}
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #48dbfb;
+			overflow: hidden;
+		}
+		
+		#hurray-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 10vh;
+			font-weight: bold;
+			color: white;
+			text-shadow: 2px 2px #2d3436;
+			animation: hurray 2s ease-in-out;
+			animation-fill-mode: forwards;
+		}
+		
+		@keyframes hurray {
+			0% {
+				transform: scale(0);
+				opacity: 0;
+			}
+			50% {
+				transform: scale(2);
+				opacity: 1;
+			}
+			100% {
+				transform: scale(1);
+				opacity: 0;
+			}
+		}
 	</style>
 </head>
 <body>
 	<h1>Match the Words with Images</h1>
 	<div id="game"></div>
+	<div id="hurray-container">
+		Hurray!
+	</div>
 	<script>
 		// Array of words and images
 		const words = [
