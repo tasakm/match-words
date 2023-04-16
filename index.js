@@ -26,7 +26,7 @@ words.forEach(word => {
 words.sort(() => Math.random() - 0.5);
 
 // Handle drop events on the word containers
-const imagesContainer = document.getElementById('words-container');
+const imagesContainer = document.getElementById('images-container');
 words.forEach(word => {
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
