@@ -1,14 +1,14 @@
-.game-container {
+#game {
   display: flex;
   align-items: center;
 }
 
-.words-container {
+#words-container {
   margin-bottom: 10px;
   width: calc(50% - 9px);
 }
 
-.images-container {
+#images-container {
   width: calc(50% - 9px);
 }
 
