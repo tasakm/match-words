@@ -30,7 +30,7 @@ const imagesContainer = document.getElementById('images-container');
 words.forEach(word => {
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
-  imageConainer.id = word.word + '-image';
+  imageContainer.id = word.word + '-image';
   imageContainer.draggable = true;
   imageContainer.addEventListener('dragstart', (event) => {
       event.dataTransfer.setData('text/plain', word.word);
