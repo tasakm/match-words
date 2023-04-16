@@ -32,10 +32,10 @@ words.forEach(word => {
 words.sort(() => Math.random() - 0.5);
 
 // Handle drop events on the word containers
-const wordContainers = document.querySelectorAll('.word');
+const wordContainers1 = document.querySelectorAll('.word-container');
 let i = 0;
 words.forEach(word => {
-  const wordContainer = wordContainers[i];
+  const wordContainer = wordContainers1[i];
   i++;
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
@@ -50,6 +50,9 @@ words.forEach(word => {
 
   wordContainer.appendChild(imageContainer);
 });
+
+// Handle drop events on the word containers
+const wordContainers = document.querySelectorAll('.word');
 
 wordContainers.forEach(wordContainer => {
   wordContainer.addEventListener('dragover', (event) => {
