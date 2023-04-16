@@ -8,9 +8,6 @@ const words = [
   { word: 'Pineapple', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Pineapple' }
 ];
 
-// Shuffle the array of words
-words.sort(() => Math.random() - 0.5);
-
 // hide the hurray container
 const hurrayContainer = document.getElementById('hurray-container');
 hurrayContainer.style.display = "none";
@@ -21,12 +18,22 @@ const gameContainer = document.getElementById('game');
 words.forEach(word => {
   const wordContainer = document.createElement('div');
   wordContainer.classList.add('word-container');
-
+  wordContainer.id = word.word;
+  
   const wordText = document.createElement('div');
   wordText.classList.add('word');
   wordText.innerText = word.word;
   wordContainer.appendChild(wordText);
+  
+  gameContainer.appendChild(wordContainer);
+});
 
+// Shuffle the array of words
+words.sort(() => Math.random() - 0.5);
+
+words.forEach(word => {
+  const wordContainer = document.getElementById(word.word);
+  
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
   imageContainer.draggable = true;
@@ -39,7 +46,6 @@ words.forEach(word => {
   imageContainer.appendChild(image);
 
   wordContainer.appendChild(imageContainer);
-  gameContainer.appendChild(wordContainer);
 });
 
 // Handle drop events on the word containers
