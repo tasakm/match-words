@@ -1,0 +1,72 @@
+img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none; /* Make the image unclickable */
+}
+
+.word-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.word {
+  padding: 10px;
+  border: 2px solid black;
+  background-color: #f0f0f0;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.word:hover {
+  background-color: #e0e0e0;
+}
+
+.image-container {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: move;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #48dbfb;
+  overflow: hidden;
+}
+
+#hurray-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10vh;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px #2d3436;
+  animation: hurray 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hurray {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
