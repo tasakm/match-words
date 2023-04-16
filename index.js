@@ -63,6 +63,7 @@ wordContainers.forEach(wordContainer => {
     event.preventDefault();
     const word = event.dataTransfer.getData('text/plain');
     if(word === event.target.innerText){
+        document.getElementById(word).remove();
         hurrayContainer.style.display = "flex";
         setTimeout(()=>{
           // hide the hurray container again after 2 seconds.
