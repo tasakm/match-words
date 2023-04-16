@@ -1,17 +1,18 @@
-img {
-  max-width: 100%;
-  height: auto;
-  pointer-events: none; /* Make the image unclickable */
-}
-
-.word-container {
+.game-container {
   display: flex;
   align-items: center;
+}
+
+.words-container {
   margin-bottom: 10px;
+  width: calc(50% - 9px);
+}
+
+.images-container {
+  width: calc(50% - 9px);
 }
 
 .word {
-  width: calc(50% - 9px);
   height: 150px;
   padding: 10px;
   border: 2px solid black;
@@ -26,7 +27,6 @@ img {
 }
 
 .image-container {
-  width: calc(50% - 9px);
   height: 150px;
   border: 2px solid black;
   background-color: white;
@@ -34,6 +34,12 @@ img {
   align-items: center;
   justify-content: center;
   cursor: move;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none; /* Make the image unclickable */
 }
 
 body {
