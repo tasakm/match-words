@@ -53,7 +53,13 @@ wordContainers.forEach(wordContainer => {
   wordContainer.addEventListener('drop', (event) => {
     event.preventDefault();
     const word = event.dataTransfer.getData('text/plain');
-    if(word === event.target.innerText)
+    if(word === event.target.innerText){
         hurrayContainer.style.display = "flex";
+        setTimeout(()=>{
+          // hide the hurray container again after 2 seconds.
+          const hurrayContainer = document.getElementById('hurray-container');
+          hurrayContainer.style.display = "none";
+        }, 2000)
+    }
   });
 });
