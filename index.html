@@ -6,6 +6,36 @@
 		img {
 			max-width: 100%;
 			height: auto;
+			pointer-events: none; /* Make the image unclickable */
+		}
+		
+		.word-container {
+			display: flex;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+		
+		.word {
+			padding: 10px;
+			border: 2px solid black;
+			background-color: #f0f0f0;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		
+		.word:hover {
+			background-color: #e0e0e0;
+		}
+		
+		.image-container {
+			width: 150px;
+			height: 150px;
+			border: 2px solid black;
+			background-color: white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: move;
 		}
 	</style>
 </head>
@@ -18,7 +48,7 @@
 			{ word: 'Apple', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Apple' },
 			{ word: 'Banana', img: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=Banana' },
 			{ word: 'Orange', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Orange' },
-			{ word: 'Grapes', img: 'https://via.placeholder.com/150/8E44AD/FFFFFF?text=Grapes' },
+				{ word: 'Grapes', img: 'https://via.placeholder.com/150/8E44AD/FFFFFF?text=Grapes' },
 			{ word: 'Mango', img: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=Mango' },
 			{ word: 'Pineapple', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Pineapple' }
 		];
@@ -33,12 +63,17 @@
 			const wordContainer = document.createElement('div');
 			wordContainer.classList.add('word-container');
 			
-			const wordText = document.createElement('p');
+			const wordText = document.createElement('div');
+			wordText.classList.add('word');
 			wordText.innerText = word.word;
 			wordContainer.appendChild(wordText);
 			
 			const imageContainer = document.createElement('div');
 			imageContainer.classList.add('image-container');
+			imageContainer.draggable = true;
+			imageContainer.addEventListener('dragstart', (event) => {
+				event.dataTransfer.setData('text/plain', word.word);
+			});
 			
 			const image = document.createElement('img');
 			image.src = word.img;
@@ -46,6 +81,21 @@
 			
 			wordContainer.appendChild(imageContainer);
 			gameContainer.appendChild(wordContainer);
+		});
+		
+		// Handle drop events on the word containers
+		const wordContainers = document.querySelectorAll('.word');
+		
+		wordContainers.forEach(wordContainer => {
+			wordContainer.addEventListener('dragover', (event) => {
+				event.preventDefault();
+			});
+			
+			wordContainer.addEventListener('drop', (event) => {
+				event.preventDefault();
+				const word = event.dataTransfer.getData('text/plain');
+				console.log(event)
+			});
 		});
 	</script>
 </body>
