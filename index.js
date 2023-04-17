@@ -55,14 +55,15 @@ wordContainers.forEach(wordContainer => {
     event.preventDefault();
     const word = event.dataTransfer.getData('text/plain');
     if(word === event.target.innerText){
-      document.getElementById(word).remove();
-      document.getElementById(word + '-image').remove();
+      
       hurrayContainer.style.display = "flex";
       setTimeout(()=>{
+        document.getElementById(word).remove();
+        document.getElementById(word + '-image').remove();
         // hide the hurray container again after 2 seconds.
         const hurrayContainer = document.getElementById('hurray-container');
         hurrayContainer.style.display = "none";
-      }, 2000)
+      }, 1000)
     }
   });
 });
