@@ -1,11 +1,11 @@
 // Array of words and images
 const words = [
-  { word: 'Apple', img: 'images/apple.jpeg' },
-  { word: 'Banana', img: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=Banana' },
-  { word: 'Orange', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Orange' },
-  { word: 'Grapes', img: 'https://via.placeholder.com/150/8E44AD/FFFFFF?text=Grapes' },
-  { word: 'Mango', img: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=Mango' },
-  { word: 'Pineapple', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Pineapple' }
+  { word: 'Apple', img: 'images/apple.png' },
+  { word: 'Banana', img: 'images/banana.png' },
+  { word: 'Orange', img: 'images/orange.png' },
+  { word: 'Grapes', img: 'images/grapes.png' },
+  { word: 'Mango', img: 'images/mango.png' },
+  { word: 'Pineapple', img: 'images/pineapple.png' }
 ];
 
 // hide the hurray container

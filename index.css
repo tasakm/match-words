@@ -1,0 +1,9 @@
+.game-button {
+    border: 1px yellow solid;
+    width: 200px;
+    background: antiquewhite;
+    padding: 5px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
