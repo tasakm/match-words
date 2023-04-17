@@ -1,6 +1,6 @@
 // Array of words and images
 const words = [
-  { word: 'Apple', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Apple' },
+  { word: 'Apple', img: 'images/apple.jpeg' },
   { word: 'Banana', img: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=Banana' },
   { word: 'Orange', img: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=Orange' },
   { word: 'Grapes', img: 'https://via.placeholder.com/150/8E44AD/FFFFFF?text=Grapes' },
